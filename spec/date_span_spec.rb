@@ -1,8 +1,14 @@
-require 'rspec'
+require 'spec_helper'
 
-require_relative '../date_span'
+# require_relative '../lib/date_span.rb'
 
-RSpec.describe DateSpan, '#pluralize' do
+describe DateSpan do
+  it 'has a version number' do
+    expect(DateSpan::VERSION).not_to be nil
+  end
+end
+
+describe DateSpan, '#pluralize' do
   it 'converts (2000, 2001) to 2000-1' do
     expect(DateSpan.pluralize(2000, 2001)).to eq '2000-1'
   end
@@ -24,8 +30,7 @@ RSpec.describe DateSpan, '#pluralize' do
   end
 end
 
-RSpec.describe DateSpan, '#singularize' do
-
+describe DateSpan, '#singularize' do
   it 'converts 2000-0 to [2000, 2000]' do
     expect(DateSpan.singularize('2000-0')).to eq [2000, 2000]
   end
